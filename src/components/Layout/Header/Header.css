@@ -1,0 +1,82 @@
+.header {
+  font: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: #67aeca;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.main {
+  width: 100%;
+  height: 15rem;
+  padding-top: 5rem;
+  text-align: center;
+  background-color: #364F6B;
+  color: white;
+  font-size: 2rem;
+}
+
+.header nav {
+  width: 30rem;
+  margin-right: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header li {
+  display: inline;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+
+.login {
+  max-width: 20rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+}
+
+.logout {
+  max-width: 20rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+  cursor: pointer;
+}
+
+.header a:link {
+  text-decoration: none;
+  color: white;
+}
+
+.header a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.header a:hover,
+.header a:active,
+.header a.active {
+  text-decoration: underline;
+  color: grey;
+}
