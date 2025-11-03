@@ -47,6 +47,7 @@ function Login() {
         const data = await response.json();
         console.log(data);
         authCtx.login(data.idToken);
+        authCtx.userIdSet(data.localId);
         history.replace("/e-commerce-app/store");
       }
     } catch (error) {

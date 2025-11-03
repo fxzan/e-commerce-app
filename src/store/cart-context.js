@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import Cart from "../components/Cart/Cart";
 import AuthContext from "./auth-context";
 import InfoModalContext from "./infoModal-context";
+import supabase from "../helper/supabaseClient";
 
 const CartContext = React.createContext({
   items: [],
@@ -31,20 +32,25 @@ export function CartContextProvider(props) {
   }
 
   const fetchCartItemsHandler = async () => {
-    const response = await fetch(
-      `https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/cart${userID}.json`
-    );
+    const { data, error } = await supabase
+    .from('cart')
+    .select('*')
+    .eq('userId', userID);
 
-    const data = await response.json();
+    if (error) {
+      console.log(error);
+      throw new Error(`${error.code} ${error.message}`)
+    }
+
     const loadedItems = [];
-    for (let key in data) {
+    for (let each in data) {
       loadedItems.push({
-        cartID: key,
-        id: data[key].id,
-        title: data[key].title,
-        price: data[key].price,
-        amount: data[key].amount,
-        imageUrl: data[key].imageUrl,
+        cartID: data[each].id,
+        id: data[each].productId,
+        title: data[each].title,
+        price: data[each].price,
+        amount: data[each].amount,
+        imageUrl: data[each].imageUrl,
       });
     }
     const updatedTotal = loadedItems.reduce((curTot, item) => {
@@ -61,21 +67,21 @@ export function CartContextProvider(props) {
 
   async function addItemToCartHandler(item) {
     try {
-      const response = await fetch(
-        `https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/cart${userID}.json`,
-        {
-          method: "POST",
-          body: JSON.stringify(item),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const { data, error } = await supabase
+      .from('cart')
+      .insert({
+        userId: userID,
+        productId: item.id,
+        title: item.title,
+        price: item.price,
+        imageUrl: item.imageUrl,
+        amount: item.amount
+      });
 
-      if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
+      if (error) {
+        console.log(error);
+        throw new Error(`${error.code} ${error.message}`)
       }
-      const data = await response.json();
       console.log(data);
       fetchCartItemsHandler();
     } catch (error) {
@@ -87,21 +93,15 @@ export function CartContextProvider(props) {
     const item = cartItems.find((cartItem) => cartItem.cartID === cartID);
     const newAmount = Number(item.amount) + 1;
     try {
-      const response = await fetch(
-        `https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/cart${userID}/${cartID}.json`,
-        {
-          method: "PATCH",
-          body: JSON.stringify({ amount: newAmount }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
-      }
+      const { data, error } = await supabase
+      .from('cart')
+      .update({ amount: newAmount })
+      .eq('id', cartID).eq('userId', userID);
 
-      const data = await response.json();
+      if (error) {
+        console.log(error);
+        throw new Error(`${error.code} ${error.message}`)
+      }
       console.log(data);
       fetchCartItemsHandler();
     } catch (error) {
@@ -111,19 +111,17 @@ export function CartContextProvider(props) {
 
   async function removeAllHandler(cartID) {
     try {
-      const response = await fetch(
-        `https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/cart${userID}/${cartID}.json`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
+      const { data, error } = await supabase
+      .from('cart')
+      .delete()
+      .eq('id', cartID).eq('userId', userID);
+
+      if (error) {
+        console.log(error);
+        throw new Error(`${error.code} ${error.message}`)
       }
-      console.log(response);
+
+      console.log(data);
       fetchCartItemsHandler();
     } catch (error) {
       alert(error);
@@ -137,20 +135,16 @@ export function CartContextProvider(props) {
       removeAllHandler(cartID);
     } else {
       try {
-        const response = await fetch(
-          `https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/cart${userID}/${cartID}.json`,
-          {
-            method: "PATCH",
-            body: JSON.stringify({ amount: newAmount }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error(`${response.status} ${response.statusText}`);
+        const { data, error } = await supabase
+        .from('cart')
+        .update({ amount: newAmount })
+        .eq('id', cartID).eq('userId', userID);
+
+        if (error) {
+          console.log(error);
+          throw new Error(`${error.code} ${error.message}`)
         }
-        console.log(response);
+        console.log(data);                        
         fetchCartItemsHandler();
       } catch (error) {
         alert(error);
@@ -161,19 +155,16 @@ export function CartContextProvider(props) {
   async function purchaseHandler() {
     for (let item of cartItems) {
       try {
-        const response = await fetch(
-          `https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/cart${userID}/${item.cartID}.json`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error(`${response.status} ${response.statusText}`);
+        const { data, error } = await supabase
+        .from('cart')
+        .delete()
+        .eq('id', item.cartID).eq('userId', userID);
+
+        if (error) {
+          console.log(error);
+          throw new Error(`${error.code} ${error.message}`)
         }
-        console.log(response.status);
+        console.log(data); 
       } catch (error) {
         alert(error);
       }

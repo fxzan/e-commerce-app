@@ -7,15 +7,15 @@ const AuthContext = React.createContext({
   isLoggedIn: false,
   login: () => {},
   logout: () => {},
+  userIdSet: () => {}
 });
 
 export function AuthContextProvider(props) {
   const history = useHistory();
   const inititalToken = localStorage.getItem("token");
   const [token, setToken] = React.useState(inititalToken);
+  const [userID, setUserID] = React.useState(localStorage.getItem("userID"));
   const isLoggedIn = !!token;
-  let userID = "";
-  if (token) userID = token.substring(token.length - 15);
 
   function loginHandler(newToken) {
     localStorage.setItem("token", newToken);
@@ -24,8 +24,14 @@ export function AuthContextProvider(props) {
 
   function logoutHandler() {
     localStorage.removeItem("token");
+    localStorage.removeItem("userID");
     setToken(null);
     history.replace("/e-commerce-app/");
+  }
+
+  function userIdHandler(userID) {
+    localStorage.setItem("userID", userID);
+    setUserID(userID);
   }
 
   const contextValue = {
@@ -34,6 +40,7 @@ export function AuthContextProvider(props) {
     isLoggedIn: isLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
+    userIdSet: userIdHandler
   };
 
   return (

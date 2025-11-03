@@ -32,7 +32,7 @@ const Header = (props) => {
             <HeaderCartButton onClick={props.onShowCart} />
           </Route>
           {!authCtx.isLoggedIn && (
-            <NavLink activeClassName="active" to="/login">
+            <NavLink activeClassName="active" to="/e-commerce-app/login">
               <h2 className="login">Login</h2>
             </NavLink>
           )}

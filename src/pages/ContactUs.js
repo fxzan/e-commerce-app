@@ -1,5 +1,5 @@
 import React from "react";
-
+import supabase from "../helper/supabaseClient";
 import InfoModalContext from "../store/infoModal-context";
 
 function ContactUs() {
@@ -20,22 +20,13 @@ function ContactUs() {
       message: message.current.value,
     };
     try {
-      const response = await fetch(
-        "https://the-band-website-default-rtdb.asia-southeast1.firebasedatabase.app/contacts.json",
-        {
-          method: "POST",
-          body: JSON.stringify(contact),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const {data, error} = await supabase.from("contact-form").insert({contactDetails: contact}).select();
 
-      if (!response.ok) {
-        throw new Error(`Something went wrong! (Code: ${response.status})`);
+      if (error) {
+        console.log(error);
+        throw new Error(`${error.code} ${error.message}`)
       }
 
-      const data = await response.json();
       console.log(data);
 
       name.current.value = "";
