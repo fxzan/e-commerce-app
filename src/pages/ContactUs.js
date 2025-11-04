@@ -50,7 +50,7 @@ function ContactUs() {
       <input id="phone" type="tel" ref={phone} required />
       <label htmlFor="message">Message:</label>
       <textarea id="message" ref={message} />
-      <button type="submit" className="btn-pink">Contact Us</button>
+      <button type="submit" className="action-button">Contact Us</button>
     </form>
   );
 

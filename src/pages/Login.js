@@ -10,6 +10,7 @@ function Login() {
   const modalCtx = React.useContext(InfoModalContext);
   const email = React.useRef();
   const password = React.useRef();
+  const confPassRef = React.useRef();
   const history = useHistory();
 
   function loginToggle() {
@@ -18,6 +19,9 @@ function Login() {
 
   async function submitHandler(event) {
     event.preventDefault();
+    if (!isLogin && password.current.value !== confPassRef.current.value) {
+      throw new Error("Passwords don't match!");
+    }
     let url;
     if (isLogin)
       url =
@@ -41,8 +45,8 @@ function Login() {
 
       if (!response.ok) {
         const data = await response.json();
-        console.log(data.error.code);
-        throw new Error(` Code ${data.error.code}: ${data.error.message}`);
+        console.log(data.error);
+        throw new Error(`${data.error.message}`);
       } else {
         const data = await response.json();
         console.log(data);
@@ -65,13 +69,26 @@ function Login() {
             <input id="email" type="email" ref={email} required />
             <label htmlFor="phone">Password:</label>
             <input id="phone" type="password" ref={password} required />
-            <button className="btn-pink" type="submit">
+            {!isLogin && (
+              <label htmlFor="phone">Password:</label>
+            )}
+            {!isLogin && (
+              <input
+                id="conf-password"
+                type="password"
+                ref={confPassRef}
+              />
+            )}
+            <button className="action-button" type="submit">
               {isLogin ? "Sign in" : "Sign up"}
             </button>
           </form>
-          <div className={"login-mode"} onClick={loginToggle}>
-            {isLogin ? "Create a new account" : "Login to an existing account"}
-          </div>
+          <p>
+          {isLogin ? "Create an account? " : "Have an account? "}
+          <span className="link-text" onClick={loginToggle}>
+            {isLogin ? "Sign Up" : "Login"}
+          </span>
+        </p>
         </div>
       </div>
     </>

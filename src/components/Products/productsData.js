@@ -20,7 +20,7 @@ const albumItems = [
       "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
       "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
       "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
-      "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
+      "https://dffuaugrsggqygrioucn.supabase.co/storage/v1/object/public/pics/Cofee.png",
     ],
   },
   {
@@ -33,7 +33,7 @@ const albumItems = [
       "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
       "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
       "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
-      "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
+      "https://dffuaugrsggqygrioucn.supabase.co/storage/v1/object/public/pics/Cofee.png",
     ],
   },
   {
@@ -46,7 +46,7 @@ const albumItems = [
       "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
       "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
       "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
-      "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
+      "https://dffuaugrsggqygrioucn.supabase.co/storage/v1/object/public/pics/Cofee.png",
     ],
   },
 ];
@@ -58,7 +58,7 @@ const merchItems = [
     price: 19.99,
     imageUrl: [
       "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
-      "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
+      "https://dffuaugrsggqygrioucn.supabase.co/storage/v1/object/public/pics/Cofee.png",
     ],
   },
   {
@@ -66,7 +66,7 @@ const merchItems = [
     title: "Coffee Cup",
     price: 6.99,
     imageUrl: [
-      "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
+      "https://dffuaugrsggqygrioucn.supabase.co/storage/v1/object/public/pics/Cofee.png",
       "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
       "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
       "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",

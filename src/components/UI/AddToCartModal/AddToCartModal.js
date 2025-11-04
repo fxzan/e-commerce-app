@@ -4,7 +4,7 @@ import './AddToCartModal.css';
 function AddToCartModal(props) {
     return (
       <div className="add-to-cart-modal">
-        <span>{props.item}</span> added to Cart successfully!
+        <p>{props.item} <span>added to Cart successfully!</span></p>
       </div>
     );
 }

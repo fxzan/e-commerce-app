@@ -7,8 +7,10 @@ import Reviews from "../components/Products/Reviews";
 import AddToCartModal from "../components/UI/AddToCartModal/AddToCartModal";
 import CartContext from "../store/cart-context";
 import productsData from "../components/Products/productsData";
+import InfoModalContext from "../store/infoModal-context";
 
 function Products() {
+  const modalCtx = React.useContext(InfoModalContext);
   const cartCtx = React.useContext(CartContext);
   const [showAddModal, setShowAddModal] = React.useState(false);
 
@@ -20,7 +22,7 @@ function Products() {
   function addToCartHandler() {
     for (let item of cartCtx.items) {
       if (item.id === product.id) {
-        alert("Item already in Cart!");
+        modalCtx.showModal("Item already in Cart!");
         return;
       }
     }

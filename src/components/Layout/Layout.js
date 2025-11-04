@@ -10,11 +10,12 @@ function Layout(props) {
   const cartCtx = React.useContext(CartContext);
 
   return (
-    <>
+    <div className="layout-container">
       <Header onShowCart={cartCtx.showCart} />
+      <div className="header-buffer" />
       <main className="main-content">{props.children}</main>
       <Footer />
-    </>
+    </div>
   );
 }
 

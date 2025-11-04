@@ -37,14 +37,12 @@ function ProductItem(props) {
       <Link to={`/e-commerce-app/store/${props.productClass}/${props.id}`}>
         <h3>{title}</h3>
       </Link>
-      <div className="product-item-image">
-        <Link to={`/e-commerce-app/store/${props.productClass}/${props.id}`}>
-          <img src={imageUrl[0]} alt={title} />
-        </Link>
-      </div>
+      <Link to={`/e-commerce-app/store/${props.productClass}/${props.id}`}>
+        <img src={imageUrl[0]} alt={title} />
+      </Link>
       <div className="product-details">
         <span>${price.toFixed(2)}</span>
-        <button className="addToCart-btn" onClick={addToCartHandler}>
+        <button className="action-button secondary-button" onClick={addToCartHandler}>
           Add To Cart
         </button>
       </div>

@@ -1,19 +1,24 @@
 .add-to-cart-modal {
     position: fixed;
-    bottom: 10px;
-    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 5%;
+    right: 5%;
     width: 33rem;
-    height: 5rem;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    background-color: rgb(117, 117, 117);
-    color: #364f6b;
-    text-align: center;
-    padding: 1.5rem 0;
+    color: #e2e8f0;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    z-index: 100;
+    width: 25rem;
+    min-height: 5rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: #131829;
+    text-align: center;
+    padding: 1.5rem;
 }
 
 .add-to-cart-modal span {
-    color: white;
+    color: #64748b;
 }

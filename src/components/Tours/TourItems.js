@@ -7,7 +7,7 @@ function TourItems(props) {
       <div className="city">{props.tour.city}</div>
       <div className="arena">{props.tour.arena}</div>
       <a href="https://www.ticketmaster.com/" target="_blank" rel="noreferrer">
-        <button className="buy-tickets-btn">Buy Tickets</button>
+        <button className="action-button buy-button">Buy Tickets</button>
       </a>
     </li>
   );

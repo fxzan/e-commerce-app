@@ -6,7 +6,7 @@ function Reviews() {
     <div key={item.name} className="review-item">
       <div className="review-title">
         <h2>"{item.name}"</h2>
-        <div className="rating">Rating: ⭐⭐⭐⭐⭐</div>
+        <div className="review-rating">Rating: ⭐⭐⭐⭐⭐</div>
       </div>
       <div className="review-description">"{item.review}"</div>
     </div>

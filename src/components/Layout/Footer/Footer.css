@@ -1,17 +1,21 @@
-.footer {
+footer {
+  background-color: #131829;
+}
+
+.footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #67aeca;
   color: white;
-  padding: 0 16.5rem;
-  height: 5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  width: 80%;
+  margin: 0 auto;
+  height: 4rem;
 }
 
 .footer-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
+    color: #fc5185;
 }
 
 .footer-icons {
@@ -23,6 +27,9 @@
 
 .footer-icons img {
   width: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+}
+
+.footer a {
+  text-decoration: none;
 }

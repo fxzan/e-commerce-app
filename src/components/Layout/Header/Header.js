@@ -1,11 +1,13 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import HeaderCartButton from "./HeaderCartButton";
 import "./Header.css";
 import AuthContext from "../../../store/auth-context";
+import loginImg from "./login.png";
+import logoutImg from "./logout.png";
 
 const Header = (props) => {
+  const location = useLocation();
   const authCtx = React.useContext(AuthContext);
 
   return (
@@ -13,7 +15,8 @@ const Header = (props) => {
       <header className="header">
         <div className="header-container">
           <nav>
-            <ul>
+            <a className="logo" href="/e-commerce-app/home">ReactBand</a>
+            <ul className="nav-links">
               <NavLink activeClassName="active" to="/e-commerce-app/home">
                 <li>Home</li>
               </NavLink>
@@ -28,24 +31,19 @@ const Header = (props) => {
               </NavLink>
             </ul>
           </nav>
-          <Route path="/e-commerce-app/store">
+          <div className="header-actions">
             <HeaderCartButton onClick={props.onShowCart} />
-          </Route>
-          {!authCtx.isLoggedIn && (
-            <NavLink activeClassName="active" to="/e-commerce-app/login">
-              <h2 className="login">Login</h2>
-            </NavLink>
-          )}
-          {authCtx.isLoggedIn && (
-            <h2 className="logout" onClick={authCtx.logout}>
-              Logout
-            </h2>
-          )}
+            {(!authCtx.isLoggedIn && location.pathname !== "/e-commerce-app/login") && (
+              <NavLink activeClassName="active" to="/e-commerce-app/login">
+                <img className="header-icon" src={loginImg} alt="Login"/>
+              </NavLink>
+            )}
+            {authCtx.isLoggedIn && (
+              <img className="header-icon" src={logoutImg} alt="Logout" onClick={authCtx.logout} />
+            )}
+          </div>
         </div>
       </header>
-      <div className="main">
-        <h1>The Band</h1>
-      </div>
     </>
   );
 };

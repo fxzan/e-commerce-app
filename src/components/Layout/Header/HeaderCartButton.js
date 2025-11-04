@@ -1,16 +1,19 @@
 import React from "react";
 import CartContext from "../../../store/cart-context";
 import './HeaderCartButton.css';
+import AuthContext from "../../../store/auth-context";
+import cartImg from "./cart.png";
 
 function HeaderCartButton(props) {
   const cartCtx = React.useContext(CartContext);
-  const numberOfCartItems = cartCtx.items.reduce((curItems) => curItems + 1, 0);
+  const authCtx = React.useContext(AuthContext)
+  const numberOfCartItems = cartCtx.items.reduce((total, item) => total + item.amount, 0);
 
   return (
-    <button className="button" onClick={props.onClick}>
-      <span>Cart</span>
+    <div className="header-cart-button" onClick={props.onClick} hidden={!authCtx.isLoggedIn}>
+      <img src={cartImg} alt="Cart" className="header-icon"/>
       <span className="badge">{numberOfCartItems}</span>
-    </button>
+    </div>
   );
 }
 

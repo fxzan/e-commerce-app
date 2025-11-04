@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -23,38 +24,43 @@ code {
   font-weight: bold;
 }
 
-.btn-white {
-  background-color: #f5f5f5;
-  cursor: pointer;
+.action-button {
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 8rem;
+  background-color: #6366f1;
+  color: #e2e8f0;
+  padding: 0.5rem 1.5rem;
   border: none;
-  border-radius: 5px;
-  width: 8rem;
-  height: 2rem;
-  margin: auto 10px;
-  font-size: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  color: #364f6b;
+  cursor: pointer;
+  transition: ease 0.3s;
+  text-decoration: none;
 }
 
-.btn-white:hover, .btn-white:active {
-    background-color: grey;
+.action-button:hover, .action-button:active {
+  background-color: #8b5cf6;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
 }
 
-.btn-pink {
-    margin: 2rem;
-    height: 3rem;
-    width: 9rem;
-    font-size: 1.5rem;
-    color: white;
-    background-color: #fc5185;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+.secondary-button {
+    background: transparent;
+    color: #6366f1;
+    border: 1px solid #6366f1;
+}
+
+.secondary-button:hover, .secondary-button:active {
+    background: rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.link-text {
     cursor: pointer;
-    border-radius: 5px;
+    text-decoration: none;
 }
 
-.btn-pink:hover, .btn-pink:active {
-    background-color: #af365b;
+.link-text:hover, .link-text:active{
+    text-decoration: underline;
 }
 
 .container-form {
@@ -64,9 +70,7 @@ code {
     align-items: center;
     max-width: 900px;
     margin: 3rem auto;
-    background-color: #f5f5f5;
-    color: #364f6b;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    color: #8b5cf6;
 }
 
 .form-container {
@@ -74,12 +78,13 @@ code {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 6rem;
+    padding: 2rem 5%;
+    width: 60%;
     margin: 2rem;
-    width: 90%;
-    background-color: white;
-    color: #364f6b;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: #1a1f3a;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    color: #e2e8f0;
 }
 
 .form-container form {
@@ -93,40 +98,45 @@ code {
 .form-container label {
     width: 100%;
     text-align: left;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    color: #64748b;
+    font-size: 1rem;
 }
 
 .form-container input {
     width: 100%;
-    font-size: 1.4rem;
-    border: 1px solid #364f6b;
-    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    border-bottom: 2px dotted #e2e8f0;
+    color: #e2e8f0;
+    outline: none;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.form-container button {
+  margin-bottom: 1rem;
+}
+
+.form-container span {
+  color: #64748b;
 }
 
 .form-container textarea {
+    font-family: inherit;
     width: 100%;
-    font-size: 1.2rem;
-    border: 1px solid #364f6b;
-    border-radius: 5px;
+    font-size: 1rem;
+    background: none;
+    color: #e2e8f0;
+    border: none;
+    border-bottom: 2px dotted #e2e8f0;
+    outline: none;
     height: 6rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
-.form-container p{
-    height: 15rem;
-    padding-top: 6rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.login-mode {
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.login-mode:hover, .login-mode:active{
-    text-decoration: underline;
+.form-container input:focus,
+.form-container textarea:focus {
+    border-bottom-color: #6366f1;
 }

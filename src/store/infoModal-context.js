@@ -35,7 +35,7 @@ export function InfoModalContextProvider(props) {
     }
 
   return (
-      <InfoModalContext.Provider value={contextValue} >
+    <InfoModalContext.Provider value={contextValue} >
       {isActive && infoModal}
       {props.children}
     </InfoModalContext.Provider>

@@ -48,14 +48,12 @@ function ProductDetails(props) {
       <div className="product-item-details" id={`${props.product.id}-details`}>
         <div className="product-item-images-small">{imageThumbs}</div>
         <div className="product-item-details-image">
-          <div>
-            <img
-              src={mainImageUrl}
-              alt={props.product.title}
-              onClick={zoomHandler}
-            />
-          </div>
-          <button className=" btn-pink" onClick={addToCartHandler}>
+          <img
+            src={mainImageUrl}
+            alt={props.product.title}
+            onClick={zoomHandler}
+          />
+          <button className="action-button secondary-button" onClick={addToCartHandler}>
             Add To Cart
           </button>
         </div>

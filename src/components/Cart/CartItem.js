@@ -32,8 +32,10 @@ function CartItem(props) {
         <div className="cart-amount"> x {props.item.amount}</div>
       </div>
       <div className="cart-item-actions">
-        <button onClick={onRemove}> - </button>
-        <button onClick={onIncrease}> + </button>
+        <div>
+          <button onClick={onRemove}> - </button>
+          <button onClick={onIncrease}> + </button>
+        </div>
         <div className="remove-item" onClick={onRemoveAll}>Remove</div>
       </div>
     </li>

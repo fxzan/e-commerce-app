@@ -1,44 +1,36 @@
-.latest-album {
+.hero-section {
   display: flex;
   flex-direction: column;
+  width: 70%;
+  margin: 2rem auto;
+  padding-bottom: 1rem;
+  justify-content: space-around;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: 10rem;
-  background-color: #fc5185;
+  gap: 2rem;
 }
 
-.latest-album-btn {
-  width: 19rem;
-  height: 3.5rem;
-  font-size: 1.75rem;
-  margin: 22px auto;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  color: #364f6b;
-  cursor: pointer;
+.hero-section h1 {
+  color: #8b5cf6;
+  font-size: 3rem;
 }
 
-.latest-album-btn:hover,
-.latest-album-btn:active {
-  background-color: grey;
+.hero-section span {
+  color: #fc5185;
 }
 
-.play-btn {
-  height: 2.5rem;
-  width: 3rem;
-  font-size: 2rem;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  color: #364f6b;
-  cursor: pointer;
+.hero-section p {
+  color: #94a3b8;
+  font-size: 1.2rem;
 }
 
-.play-btn:hover,
-.play-btn:active {
-  background-color: grey;
+.latest-album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  gap: 10rem;
+}
+
+.latest-album button {
+  font-size: 1rem;
 }
