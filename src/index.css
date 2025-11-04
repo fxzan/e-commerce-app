@@ -143,6 +143,13 @@ code {
     border-bottom-color: #6366f1;
 }
 
+.back-button {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  width: 30px;
+  cursor: pointer;
+}
 
 @media (max-width: 900px) {
   .form-container {

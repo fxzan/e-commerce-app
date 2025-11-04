@@ -1,10 +1,14 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 import "./ProductDetails.css";
+import backImg from "./left.png";
 
 function ProductDetails(props) {
   const [mainImageUrl, setMainImageUrl] = React.useState(
     props.product.imageUrl[0]
   );
+
+  const history = useHistory();
 
   const [zoom, setZoom] = React.useState(false);
 
@@ -64,6 +68,7 @@ function ProductDetails(props) {
   return (
     <>
       {zoom && zoomedImage}
+      <img src={backImg} alt="Back" onClick={() => history.goBack()} className="back-button"/>
       <div className="product-item-details" id={`${props.product.id}-details`}>
         <div className="product-images">
           <div className="product-item-images-small">{imageThumbs}</div>
