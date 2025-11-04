@@ -2,5 +2,3 @@ Backgrounds ( #0a0e27, #1a1f3a )
 Header ( #131829 )
 Accents ( #6366f1, #8b5cf6 )
 Text ( #e2e8f0, #94a3b8, #64748b)
-
-box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);

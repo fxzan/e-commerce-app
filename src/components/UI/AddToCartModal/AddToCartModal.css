@@ -22,3 +22,18 @@
 .add-to-cart-modal span {
     color: #64748b;
 }
+
+@media (max-width: 900px) {
+    .add-to-cart-modal {
+        right: 50%;
+        transform: translate(50%, 0);
+        width: 70%;
+        font-size: 0.9rem
+    }
+}
+
+@media (max-width: 720px) {
+    .add-to-cart-modal {
+        font-size: 0.8rem;
+    }
+}

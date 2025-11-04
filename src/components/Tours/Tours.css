@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    max-width: 900px;
-    margin: 3rem auto;
+    width: 90%;
+    max-width: 800px;
+    margin: 3rem 5%;
     color: #94a3b8;
     background-color: #1a1f3a;
     border-radius: 20px;
@@ -20,4 +21,10 @@
     list-style: none;
     width: 100%;
     padding: 0 5% 2.5%;
+}
+
+@media (max-width: 720px) {
+    .tour-container h2 {
+        font-size: 1.2rem;
+    }
 }

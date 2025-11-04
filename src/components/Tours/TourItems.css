@@ -4,30 +4,37 @@
     justify-content: space-between;
     align-items: center;
     margin: 15px auto;
-    font-size: 1.1rem;
-    font-weight: 550;
     border-top: 1px solid #6366f1;
     padding-top: 15px;
 }
 
+.tour-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px auto;
+    font-size: 1rem;
+    font-weight: 550;
+}
+
 .date {
-    width: 10%;
     text-align: center;
 }
 
 .city {
-    width: 20%;
     text-align: center;
+    color: #64748b;
 }
 
 .arena {
-    padding-left: 2rem;
     width: 40%;
 }
 
 .buy-button {
     font-size: 1rem;
-    margin: 1rem 0;
+    margin: 1rem 0 1rem 2rem;
+    width: 9rem;
     background-color: #8b5cf6;
     color: #e2e8f0;
 }
@@ -35,4 +42,22 @@
 .buy-button:hover, .buy-button:active {
     background-color: #6366f1;
     color: #e2e8f0;
+}
+
+@media (max-width: 720px) {
+    .tour-item {
+        flex-direction: column;
+    }
+    .tour-info {
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+    }
+    .arena {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    .buy-button {
+        margin: 0;
+        font-size: 0.8rem;
+    }
 }

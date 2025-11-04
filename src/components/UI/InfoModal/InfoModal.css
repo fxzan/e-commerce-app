@@ -9,12 +9,14 @@
   justify-content: flex-end;
   align-items: center;
   width: 25rem;
+  max-width: 70%;
   height: 12rem;
   border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   background-color: #131829;
   text-align: center;
   padding: 2rem;
+  font-size: 0.9rem;
 }
 
 .message-content{
@@ -29,7 +31,6 @@
 .info-modal p{
   font-weight: bold;
   color: #e2e8f0;
-  font-size: 0.9rem;
 }
 
 
@@ -45,4 +46,8 @@
   width: 100%;
 }
 
-
+@media (max-width: 720px) {
+    .info-modal {
+      font-size: 0.8rem;
+    }
+}

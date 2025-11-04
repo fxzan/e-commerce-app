@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import HeaderCartButton from "./HeaderCartButton";
 import "./Header.css";
@@ -10,23 +10,48 @@ const Header = (props) => {
   const location = useLocation();
   const authCtx = React.useContext(AuthContext);
 
+  const [open, setOpen] = useState(false)
+  
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
+
   return (
     <>
       <header className="header">
         <div className="header-container">
-          <nav>
-            <a className="logo" href="/e-commerce-app/home">ReactBand</a>
-            <ul className="nav-links">
-              <NavLink activeClassName="active" to="/e-commerce-app/home">
+          <nav ref={menuRef}>
+            <div onClick={() => setOpen(!open)} className={open ? "burger active" : "burger"}>
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+            </div>
+            <NavLink className="logo" to="/e-commerce-app/home">ReactBand</NavLink>
+            <ul className={open ? "nav-links active" : "nav-links"}>
+              <NavLink activeClassName="active" to="/e-commerce-app/home" onClick={() => setOpen(false)}>
                 <li>Home</li>
               </NavLink>
-              <NavLink activeClassName="active" to="/e-commerce-app/store">
+              <NavLink activeClassName="active" to="/e-commerce-app/store" onClick={() => setOpen(false)}>
                 <li>Store</li>
               </NavLink>
-              <NavLink activeClassName="active" to="/e-commerce-app/about">
+              <NavLink activeClassName="active" to="/e-commerce-app/about" onClick={() => setOpen(false)}>
                 <li>About</li>
               </NavLink>
-              <NavLink activeClassName="active" to="/e-commerce-app/contact-us">
+              <NavLink activeClassName="active" to="/e-commerce-app/contact-us" onClick={() => setOpen(false)}>
                 <li>Contact Us</li>
               </NavLink>
             </ul>

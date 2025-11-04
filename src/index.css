@@ -26,7 +26,6 @@ code {
 }
 
 .action-button {
-  font-weight: bold;
   border-radius: 10px;
   text-align: center;
   min-width: 8rem;
@@ -37,6 +36,7 @@ code {
   cursor: pointer;
   transition: ease 0.3s;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .action-button:hover, .action-button:active {
@@ -69,8 +69,8 @@ code {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    max-width: 900px;
-    margin: 3rem auto;
+    width: 100%;
+    margin: 2rem auto;
     color: #8b5cf6;
 }
 
@@ -80,8 +80,9 @@ code {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 5%;
-    width: 60%;
-    margin: 2rem;
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
     background-color: #1a1f3a;
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
@@ -140,4 +141,17 @@ code {
 .form-container input:focus,
 .form-container textarea:focus {
     border-bottom-color: #6366f1;
+}
+
+
+@media (max-width: 900px) {
+  .form-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 720px) {
+  .form-container {
+    width: 90%;
+  }
 }

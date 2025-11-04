@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 
 import AddToCartModal from "../UI/AddToCartModal/AddToCartModal"
 import CartContext from "../../store/cart-context";
+import InfoModalContext from "../../store/infoModal-context";
 
 import "./ProductItem.css";
 
 function ProductItem(props) {
   const cartCtx = React.useContext(CartContext);
+  const modalCtx = React.useContext(InfoModalContext);
 
   const [showAddModal, setShowAddModal] = React.useState(false);
 
@@ -18,13 +20,13 @@ function ProductItem(props) {
     event.preventDefault();
     for (let item of cartCtx.items) {
       if (item.id === props.id) {
-        alert("Item already in Cart!");
+        modalCtx.showModal("Item already in Cart!");
         return;
       }
     }
     cartCtx.addItem({ ...props.product, amount: 1 });
     setShowAddModal(true);
-    setTimeout(() => setShowAddModal(false), 2000);
+    setTimeout(() => setShowAddModal(false), 3000);
   }
 
   const addModal = ReactDOM.createPortal(
@@ -41,7 +43,7 @@ function ProductItem(props) {
         <img src={imageUrl[0]} alt={title} />
       </Link>
       <div className="product-details">
-        <span>${price.toFixed(2)}</span>
+        <p>${price.toFixed(2)}</p>
         <button className="action-button secondary-button" onClick={addToCartHandler}>
           Add To Cart
         </button>

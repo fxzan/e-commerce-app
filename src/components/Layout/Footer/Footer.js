@@ -9,7 +9,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <a href="/e-commerce-app/home" className="footer-title">ReactBand</a>
+        <NavLink to="/e-commerce-app/home" className="footer-title">ReactBand</NavLink>
         <div className="footer-icons">
           <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
             <img

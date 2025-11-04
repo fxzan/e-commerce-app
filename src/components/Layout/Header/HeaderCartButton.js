@@ -10,7 +10,7 @@ function HeaderCartButton(props) {
   const numberOfCartItems = cartCtx.items.reduce((total, item) => total + item.amount, 0);
 
   return (
-    <div className="header-cart-button" onClick={props.onClick} hidden={!authCtx.isLoggedIn}>
+    <div className={!authCtx.isLoggedIn ? "header-cart-button cart-hidden" : "header-cart-button"} onClick={props.onClick}>
       <img src={cartImg} alt="Cart" className="header-icon"/>
       <span className="badge">{numberOfCartItems}</span>
     </div>

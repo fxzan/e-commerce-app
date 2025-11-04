@@ -8,6 +8,24 @@ function ProductDetails(props) {
 
   const [zoom, setZoom] = React.useState(false);
 
+  const zoomRef = React.useRef(null);
+
+  React.useEffect(() => {
+    function handleClickOutside(event) {
+      if (zoomRef.current && !zoomRef.current.contains(event.target)) {
+        zoomHandler();
+      }
+    }
+
+    if (zoom) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [zoom]);
+
   function addToCartHandler() {
     props.onAddToCart();
   }
@@ -39,6 +57,7 @@ function ProductDetails(props) {
       src={mainImageUrl}
       alt={props.product.title}
       onClick={zoomHandler}
+      ref={zoomRef}
     />
   );
 
@@ -46,16 +65,18 @@ function ProductDetails(props) {
     <>
       {zoom && zoomedImage}
       <div className="product-item-details" id={`${props.product.id}-details`}>
-        <div className="product-item-images-small">{imageThumbs}</div>
-        <div className="product-item-details-image">
-          <img
-            src={mainImageUrl}
-            alt={props.product.title}
-            onClick={zoomHandler}
-          />
-          <button className="action-button secondary-button" onClick={addToCartHandler}>
-            Add To Cart
-          </button>
+        <div className="product-images">
+          <div className="product-item-images-small">{imageThumbs}</div>
+          <div className="product-item-details-image">
+            <img
+              src={mainImageUrl}
+              alt={props.product.title}
+              onClick={zoomHandler}
+            />
+            <button className="action-button secondary-button" onClick={addToCartHandler}>
+              Add To Cart
+            </button>
+          </div>
         </div>
         <div className="product-item-details-info">
           <div className="product-item-details-title">

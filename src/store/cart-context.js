@@ -32,33 +32,37 @@ export function CartContextProvider(props) {
   }
 
   const fetchCartItemsHandler = async () => {
-    const { data, error } = await supabase
-    .from('cart')
-    .select('*')
-    .eq('userId', userID);
+    try {   
+      const { data, error } = await supabase
+      .from('cart')
+      .select('*')
+      .eq('userId', userID);
 
-    if (error) {
-      console.log(error);
-      throw new Error(`${error.code} ${error.message}`)
+      if (error) {
+        console.log(error);
+        throw new Error(`${error.code} ${error.message}`)
+      }
+
+      const loadedItems = [];
+      for (let each in data) {
+        loadedItems.push({
+          cartID: data[each].id,
+          id: data[each].productId,
+          title: data[each].title,
+          price: data[each].price,
+          amount: data[each].amount,
+          imageUrl: data[each].imageUrl,
+        });
+      }
+      const updatedTotal = loadedItems.reduce((curTot, item) => {
+        return curTot + Number(item.price) * Number(item.amount);
+      }, 0);
+
+      setCartItems(loadedItems);
+      setCartTotal(updatedTotal.toFixed(2));
+    } catch (error) {
+      modalCtx.showModal(error);
     }
-
-    const loadedItems = [];
-    for (let each in data) {
-      loadedItems.push({
-        cartID: data[each].id,
-        id: data[each].productId,
-        title: data[each].title,
-        price: data[each].price,
-        amount: data[each].amount,
-        imageUrl: data[each].imageUrl,
-      });
-    }
-    const updatedTotal = loadedItems.reduce((curTot, item) => {
-      return curTot + Number(item.price) * Number(item.amount);
-    }, 0);
-
-    setCartItems(loadedItems);
-    setCartTotal(updatedTotal.toFixed(2));
   };
 
   React.useEffect(() => {
@@ -85,7 +89,7 @@ export function CartContextProvider(props) {
       console.log(data);
       fetchCartItemsHandler();
     } catch (error) {
-      alert(error);
+      modalCtx.showModal(error);
     }
   }
 
@@ -105,7 +109,7 @@ export function CartContextProvider(props) {
       console.log(data);
       fetchCartItemsHandler();
     } catch (error) {
-      alert(error);
+      modalCtx.showModal(error);
     }
   }
 
@@ -124,7 +128,7 @@ export function CartContextProvider(props) {
       console.log(data);
       fetchCartItemsHandler();
     } catch (error) {
-      alert(error);
+      modalCtx.showModal(error);
     }
   }
 
@@ -147,7 +151,7 @@ export function CartContextProvider(props) {
         console.log(data);                        
         fetchCartItemsHandler();
       } catch (error) {
-        alert(error);
+        modalCtx.showModal(error);
       }
     }
   }
@@ -166,7 +170,7 @@ export function CartContextProvider(props) {
         }
         console.log(data); 
       } catch (error) {
-        alert(error);
+        modalCtx.showModal(error);
       }
     }
     fetchCartItemsHandler();

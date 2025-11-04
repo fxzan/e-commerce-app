@@ -38,8 +38,9 @@ function Cart(props) {
     <>
       <div className="backdrop" onClick={props.onClose} />
         <div className="cart-modal">
+          <h2>Cart</h2>
           {cartItems}
-          {cartCtx.items.length === 0 && <p>No items in Cart.</p>}
+          {cartCtx.items.length === 0 && <p>No items in cart</p>}
           {cartCtx.items.length !== 0 &&
           <div className="cart-total">
             <span>Cart Total:</span> ${cartCtx.totalAmount}

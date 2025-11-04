@@ -27,7 +27,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
 }
 
 .logo {
@@ -48,6 +47,7 @@
   list-style-type: none;
   gap: 2rem;
   justify-content: space-between;
+  z-index: 1000;
 }
 
 .nav-links a {
@@ -69,4 +69,79 @@
 .header-icon {
   width: 30px;
   cursor: pointer;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 4px;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.burger.active .line1 {
+    transform: rotate(45deg) translate(7px, 7px);
+    background-color: #8b5cf6;
+}
+
+.burger.active .line2 {
+    opacity: 0;
+}
+
+.burger.active .line3 {
+    transform: rotate(-45deg) translate(7px, -7px);
+    background-color: #8b5cf6;
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    width: 90%;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .burger {
+    display: flex;
+  }
+  .nav-links {
+      position: fixed;
+      left: -100%;
+      top: 4rem;
+      flex-direction: column;
+      background-color: #131829;
+      width: 35%;
+      text-align: left;
+      transition: left 0.3s;
+      gap: 0;
+      z-index: 100;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-links li {
+      padding: 0.8rem 0 0.8rem 2rem;
+  }
+
+  .nav-links li:last-child {
+      border-bottom: none;
+  }
+
+  .nav-links.active {
+      left: 0;
+  }
 }

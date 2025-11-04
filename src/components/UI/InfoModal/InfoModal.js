@@ -21,6 +21,7 @@ function InfoModal(props) {
           document.removeEventListener('mousedown', handleClickOutside);
         };
       }, [clicked, props.onClose]);
+      
     return (
         <div className="info-modal-backdrop">
             <div className="info-modal" ref={modalRef}>
