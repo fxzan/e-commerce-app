@@ -20,7 +20,8 @@ code {
 .fallback {
   text-align: center;
   margin: 9rem auto;
-  font-size: 5rem;
+  font-size: 2rem;
+  color: #e2e8f0;
   font-weight: bold;
 }
 
