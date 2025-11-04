@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/e-commerce-app/static/css/main.d701d7be.css",
-    "main.js": "/e-commerce-app/static/js/main.403d0cba.js",
+    "main.js": "/e-commerce-app/static/js/main.f64c424c.js",
     "static/css/78.5942e49c.chunk.css": "/e-commerce-app/static/css/78.5942e49c.chunk.css",
     "static/js/78.4e19dded.chunk.js": "/e-commerce-app/static/js/78.4e19dded.chunk.js",
     "static/css/31.d31e3272.chunk.css": "/e-commerce-app/static/css/31.d31e3272.chunk.css",
@@ -14,7 +14,7 @@
     "static/js/773.e089fa30.chunk.js": "/e-commerce-app/static/js/773.e089fa30.chunk.js",
     "index.html": "/e-commerce-app/index.html",
     "main.d701d7be.css.map": "/e-commerce-app/static/css/main.d701d7be.css.map",
-    "main.403d0cba.js.map": "/e-commerce-app/static/js/main.403d0cba.js.map",
+    "main.f64c424c.js.map": "/e-commerce-app/static/js/main.f64c424c.js.map",
     "78.5942e49c.chunk.css.map": "/e-commerce-app/static/css/78.5942e49c.chunk.css.map",
     "78.4e19dded.chunk.js.map": "/e-commerce-app/static/js/78.4e19dded.chunk.js.map",
     "31.d31e3272.chunk.css.map": "/e-commerce-app/static/css/31.d31e3272.chunk.css.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.d701d7be.css",
-    "static/js/main.403d0cba.js"
+    "static/js/main.f64c424c.js"
   ]
 }
