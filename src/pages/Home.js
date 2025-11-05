@@ -11,7 +11,7 @@ function Home() {
         <p>ReactBand: Killer hooks. Big choruses. Pure joy.</p>
       </div>
       <div className="latest-album">
-        <NavLink to="/e-commerce-app/about">
+        <NavLink to="/about">
           <button className="action-button">About Us</button>
         </NavLink>
         <a href="https://spotify.com" target="_blank" rel="noreferrer">

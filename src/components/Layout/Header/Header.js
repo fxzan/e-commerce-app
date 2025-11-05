@@ -40,26 +40,26 @@ const Header = (props) => {
               <div class="line2"></div>
               <div class="line3"></div>
             </div>
-            <NavLink className="logo" to="/e-commerce-app/home">ReactBand</NavLink>
+            <NavLink className="logo" to="/home">ReactBand</NavLink>
             <ul className={open ? "nav-links active" : "nav-links"}>
-              <NavLink activeClassName="active" to="/e-commerce-app/home" onClick={() => setOpen(false)}>
+              <NavLink activeClassName="active" to="/home" onClick={() => setOpen(false)}>
                 <li>Home</li>
               </NavLink>
-              <NavLink activeClassName="active" to="/e-commerce-app/store" onClick={() => setOpen(false)}>
+              <NavLink activeClassName="active" to="/store" onClick={() => setOpen(false)}>
                 <li>Store</li>
               </NavLink>
-              <NavLink activeClassName="active" to="/e-commerce-app/about" onClick={() => setOpen(false)}>
+              <NavLink activeClassName="active" to="/about" onClick={() => setOpen(false)}>
                 <li>About</li>
               </NavLink>
-              <NavLink activeClassName="active" to="/e-commerce-app/contact-us" onClick={() => setOpen(false)}>
+              <NavLink activeClassName="active" to="/contact-us" onClick={() => setOpen(false)}>
                 <li>Contact Us</li>
               </NavLink>
             </ul>
           </nav>
           <div className="header-actions">
             <HeaderCartButton onClick={props.onShowCart} />
-            {(!authCtx.isLoggedIn && location.pathname !== "/e-commerce-app/login") && (
-              <NavLink activeClassName="active" to="/e-commerce-app/login">
+            {(!authCtx.isLoggedIn && location.pathname !== "/login") && (
+              <NavLink activeClassName="active" to="/login">
                 <img className="header-icon" src={loginImg} alt="Login"/>
               </NavLink>
             )}

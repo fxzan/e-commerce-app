@@ -18,31 +18,31 @@ function App() {
     <Layout>
       <React.Suspense fallback={<p className="fallback">Loading...</p>}>
         <Switch>
-          <Route path="/e-commerce-app/" exact>
-            <Redirect to="/e-commerce-app/home" />
+          <Route path="/" exact>
+            <Redirect to="/home" />
           </Route>
-          <Route path="/e-commerce-app/home">
+          <Route path="/home">
             <Home />
           </Route>
-          <Route path="/e-commerce-app/store" exact>
+          <Route path="/store" exact>
             {authCtx.isLoggedIn && <Store />}
-            {!authCtx.isLoggedIn && <Redirect to="/e-commerce-app/login" />}
+            {!authCtx.isLoggedIn && <Redirect to="/login" />}
           </Route>
-          <Route path="/e-commerce-app/store/:productClass/:productID">
+          <Route path="/store/:productClass/:productID">
             {authCtx.isLoggedIn && <Products />}
-            {!authCtx.isLoggedIn && <Redirect to="/e-commerce-app/login" />}
+            {!authCtx.isLoggedIn && <Redirect to="/login" />}
           </Route>
-          <Route path="/e-commerce-app/about">
+          <Route path="/about">
             <About />
           </Route>
-          <Route path="/e-commerce-app/contact-us">
+          <Route path="/contact-us">
             <ContactUs />
           </Route>
-          <Route path="/e-commerce-app/login">
+          <Route path="/login">
             {!authCtx.isLoggedIn && <Login />}
             {authCtx.isLoggedIn && <Redirect to="/store" />}
           </Route>
-          <Route path="/e-commerce-app/*">
+          <Route path="/*">
             <p className="fallback">Page Not Found.</p>
           </Route>
         </Switch>

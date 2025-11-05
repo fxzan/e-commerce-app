@@ -26,7 +26,7 @@ export function AuthContextProvider(props) {
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
     setToken(null);
-    history.replace("/e-commerce-app/");
+    history.replace("/");
   }
 
   function userIdHandler(userID) {

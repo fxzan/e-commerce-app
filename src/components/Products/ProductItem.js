@@ -36,10 +36,10 @@ function ProductItem(props) {
 
   return (
     <div className="product-item" id={props.id}>
-      <Link to={`/e-commerce-app/store/${props.productClass}/${props.id}`}>
+      <Link to={`/store/${props.productClass}/${props.id}`}>
         <h3>{title}</h3>
       </Link>
-      <Link to={`/e-commerce-app/store/${props.productClass}/${props.id}`}>
+      <Link to={`/store/${props.productClass}/${props.id}`}>
         <img src={imageUrl[0]} alt={title} />
       </Link>
       <div className="product-details">

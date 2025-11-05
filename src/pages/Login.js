@@ -52,7 +52,7 @@ function Login() {
         console.log(data);
         authCtx.login(data.idToken);
         authCtx.userIdSet(data.localId);
-        history.replace("/e-commerce-app/store");
+        history.replace("/store");
       }
     } catch (error) {
       modalCtx.showModal(error);
