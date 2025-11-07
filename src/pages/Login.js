@@ -20,7 +20,8 @@ function Login() {
   async function submitHandler(event) {
     event.preventDefault();
     if (!isLogin && password.current.value !== confPassRef.current.value) {
-      throw new Error("Passwords don't match!");
+      modalCtx.showModal("Passwords don't match!");
+      return;
     }
     let url;
     if (isLogin)
